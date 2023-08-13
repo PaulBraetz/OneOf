@@ -105,78 +105,145 @@ namespace OneOf
         /// <summary>
         /// Gets the type of value represented by this union.
         /// </summary>
-        public Type GetRepresentedType()=>
-            _index switch
+        public Type GetRepresentedType()
+        {
+            switch(_index)
             {
-                0 => typeof(T0),
-                1 => typeof(T1),
-                2 => typeof(T2),
-                3 => typeof(T3),
-                4 => typeof(T4),
-                5 => typeof(T5),
-                6 => typeof(T6),
-                7 => typeof(T7),
-                8 => typeof(T8),
-                9 => typeof(T9),
-                10 => typeof(T10),
-                11 => typeof(T11),
-                12 => typeof(T12),
-                13 => typeof(T13),
-                14 => typeof(T14),
-                15 => typeof(T15),
-                16 => typeof(T16),
-                17 => typeof(T17),
-                18 => typeof(T18),
-                19 => typeof(T19),
-                20 => typeof(T20),
-                21 => typeof(T21),
-                22 => typeof(T22),
-                23 => typeof(T23),
-                24 => typeof(T24),
-                25 => typeof(T25),
-                26 => typeof(T26),
-                27 => typeof(T27),
-                28 => typeof(T28),
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0: 
+                    return typeof(T0);
+                case 1: 
+                    return typeof(T1);
+                case 2: 
+                    return typeof(T2);
+                case 3: 
+                    return typeof(T3);
+                case 4: 
+                    return typeof(T4);
+                case 5: 
+                    return typeof(T5);
+                case 6: 
+                    return typeof(T6);
+                case 7: 
+                    return typeof(T7);
+                case 8: 
+                    return typeof(T8);
+                case 9: 
+                    return typeof(T9);
+                case 10: 
+                    return typeof(T10);
+                case 11: 
+                    return typeof(T11);
+                case 12: 
+                    return typeof(T12);
+                case 13: 
+                    return typeof(T13);
+                case 14: 
+                    return typeof(T14);
+                case 15: 
+                    return typeof(T15);
+                case 16: 
+                    return typeof(T16);
+                case 17: 
+                    return typeof(T17);
+                case 18: 
+                    return typeof(T18);
+                case 19: 
+                    return typeof(T19);
+                case 20: 
+                    return typeof(T20);
+                case 21: 
+                    return typeof(T21);
+                case 22: 
+                    return typeof(T22);
+                case 23: 
+                    return typeof(T23);
+                case 24: 
+                    return typeof(T24);
+                case 25: 
+                    return typeof(T25);
+                case 26: 
+                    return typeof(T26);
+                case 27: 
+                    return typeof(T27);
+                case 28: 
+                    return typeof(T28);
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
+        }
 
         /// <summary>
         /// Gets the value represented by this union.
         /// </summary>
-        public object Value =>
-            _index switch
+        public object Value
+        {
+            get
             {
-                0 => _value0,
-                1 => _value1,
-                2 => _value2,
-                3 => _value3,
-                4 => _value4,
-                5 => _value5,
-                6 => _value6,
-                7 => _value7,
-                8 => _value8,
-                9 => _value9,
-                10 => _value10,
-                11 => _value11,
-                12 => _value12,
-                13 => _value13,
-                14 => _value14,
-                15 => _value15,
-                16 => _value16,
-                17 => _value17,
-                18 => _value18,
-                19 => _value19,
-                20 => _value20,
-                21 => _value21,
-                22 => _value22,
-                23 => _value23,
-                24 => _value24,
-                25 => _value25,
-                26 => _value26,
-                27 => _value27,
-                28 => _value28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                switch(_index)
+                {
+                    case 0: 
+                        return _value0;
+                    case 1: 
+                        return _value1;
+                    case 2: 
+                        return _value2;
+                    case 3: 
+                        return _value3;
+                    case 4: 
+                        return _value4;
+                    case 5: 
+                        return _value5;
+                    case 6: 
+                        return _value6;
+                    case 7: 
+                        return _value7;
+                    case 8: 
+                        return _value8;
+                    case 9: 
+                        return _value9;
+                    case 10: 
+                        return _value10;
+                    case 11: 
+                        return _value11;
+                    case 12: 
+                        return _value12;
+                    case 13: 
+                        return _value13;
+                    case 14: 
+                        return _value14;
+                    case 15: 
+                        return _value15;
+                    case 16: 
+                        return _value16;
+                    case 17: 
+                        return _value17;
+                    case 18: 
+                        return _value18;
+                    case 19: 
+                        return _value19;
+                    case 20: 
+                        return _value20;
+                    case 21: 
+                        return _value21;
+                    case 22: 
+                        return _value22;
+                    case 23: 
+                        return _value23;
+                    case 24: 
+                        return _value24;
+                    case 25: 
+                        return _value25;
+                    case 26: 
+                        return _value26;
+                    case 27: 
+                        return _value27;
+                    case 28: 
+                        return _value28;
+                    default:
+                        throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+                };
+            }
+        }
 
         /// <summary>
         /// Gets the index indicating the type of value represented by this union.
@@ -1222,39 +1289,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => mapFunc.Invoke(AsT0),
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return mapFunc.Invoke(AsT0);
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -1280,39 +1377,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => mapFunc.Invoke(AsT1),
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return mapFunc.Invoke(AsT1);
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -1338,39 +1465,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => mapFunc.Invoke(AsT2),
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return mapFunc.Invoke(AsT2);
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -1396,39 +1553,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => mapFunc.Invoke(AsT3),
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return mapFunc.Invoke(AsT3);
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -1454,39 +1641,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => mapFunc.Invoke(AsT4),
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return mapFunc.Invoke(AsT4);
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -1512,39 +1729,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => mapFunc.Invoke(AsT5),
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return mapFunc.Invoke(AsT5);
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -1570,39 +1817,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => mapFunc.Invoke(AsT6),
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return mapFunc.Invoke(AsT6);
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -1628,39 +1905,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => mapFunc.Invoke(AsT7),
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return mapFunc.Invoke(AsT7);
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -1686,39 +1993,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => mapFunc.Invoke(AsT8),
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return mapFunc.Invoke(AsT8);
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -1744,39 +2081,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => mapFunc.Invoke(AsT9),
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return mapFunc.Invoke(AsT9);
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -1802,39 +2169,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => mapFunc.Invoke(AsT10),
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return mapFunc.Invoke(AsT10);
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -1860,39 +2257,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => mapFunc.Invoke(AsT11),
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return mapFunc.Invoke(AsT11);
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -1918,39 +2345,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => mapFunc.Invoke(AsT12),
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return mapFunc.Invoke(AsT12);
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -1976,39 +2433,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => mapFunc.Invoke(AsT13),
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return mapFunc.Invoke(AsT13);
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -2034,39 +2521,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => mapFunc.Invoke(AsT14),
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return mapFunc.Invoke(AsT14);
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -2092,39 +2609,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => mapFunc.Invoke(AsT15),
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return mapFunc.Invoke(AsT15);
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -2150,39 +2697,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => mapFunc.Invoke(AsT16),
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return mapFunc.Invoke(AsT16);
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -2208,39 +2785,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => mapFunc.Invoke(AsT17),
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return mapFunc.Invoke(AsT17);
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -2266,39 +2873,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => mapFunc.Invoke(AsT18),
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return mapFunc.Invoke(AsT18);
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -2324,39 +2961,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => mapFunc.Invoke(AsT19),
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return mapFunc.Invoke(AsT19);
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -2382,39 +3049,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => mapFunc.Invoke(AsT20),
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return mapFunc.Invoke(AsT20);
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -2440,39 +3137,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => mapFunc.Invoke(AsT21),
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return mapFunc.Invoke(AsT21);
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -2498,39 +3225,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => mapFunc.Invoke(AsT22),
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return mapFunc.Invoke(AsT22);
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -2556,39 +3313,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => mapFunc.Invoke(AsT23),
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return mapFunc.Invoke(AsT23);
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -2614,39 +3401,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => mapFunc.Invoke(AsT24),
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return mapFunc.Invoke(AsT24);
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -2672,39 +3489,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => mapFunc.Invoke(AsT25),
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return mapFunc.Invoke(AsT25);
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -2730,39 +3577,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => mapFunc.Invoke(AsT26),
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return mapFunc.Invoke(AsT26);
+                case 27:
+                    return AsT27;
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -2788,39 +3665,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => mapFunc.Invoke(AsT27),
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return mapFunc.Invoke(AsT27);
+                case 28:
+                    return AsT28;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -2846,39 +3753,69 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => mapFunc.Invoke(AsT28),
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                case 4:
+                    return AsT4;
+                case 5:
+                    return AsT5;
+                case 6:
+                    return AsT6;
+                case 7:
+                    return AsT7;
+                case 8:
+                    return AsT8;
+                case 9:
+                    return AsT9;
+                case 10:
+                    return AsT10;
+                case 11:
+                    return AsT11;
+                case 12:
+                    return AsT12;
+                case 13:
+                    return AsT13;
+                case 14:
+                    return AsT14;
+                case 15:
+                    return AsT15;
+                case 16:
+                    return AsT16;
+                case 17:
+                    return AsT17;
+                case 18:
+                    return AsT18;
+                case 19:
+                    return AsT19;
+                case 20:
+                    return AsT20;
+                case 21:
+                    return AsT21;
+                case 22:
+                    return AsT22;
+                case 23:
+                    return AsT23;
+                case 24:
+                    return AsT24;
+                case 25:
+                    return AsT25;
+                case 26:
+                    return AsT26;
+                case 27:
+                    return AsT27;
+                case 28:
+                    return mapFunc.Invoke(AsT28);
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
 
         /// <summary>
@@ -2902,38 +3839,97 @@ namespace OneOf
 		public bool TryPickT0(out T0 value, out OneOf<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT0 ? AsT0 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => default,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = default;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT0;
 		}
@@ -2959,38 +3955,97 @@ namespace OneOf
 		public bool TryPickT1(out T1 value, out OneOf<T0, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT1 ? AsT1 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => default,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = default;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT1;
 		}
@@ -3016,38 +4071,97 @@ namespace OneOf
 		public bool TryPickT2(out T2 value, out OneOf<T0, T1, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT2 ? AsT2 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => default,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = default;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT2;
 		}
@@ -3073,38 +4187,97 @@ namespace OneOf
 		public bool TryPickT3(out T3 value, out OneOf<T0, T1, T2, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT3 ? AsT3 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => default,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = default;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT3;
 		}
@@ -3130,38 +4303,97 @@ namespace OneOf
 		public bool TryPickT4(out T4 value, out OneOf<T0, T1, T2, T3, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT4 ? AsT4 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => default,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = default;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT4;
 		}
@@ -3187,38 +4419,97 @@ namespace OneOf
 		public bool TryPickT5(out T5 value, out OneOf<T0, T1, T2, T3, T4, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT5 ? AsT5 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => default,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = default;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT5;
 		}
@@ -3244,38 +4535,97 @@ namespace OneOf
 		public bool TryPickT6(out T6 value, out OneOf<T0, T1, T2, T3, T4, T5, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT6 ? AsT6 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => default,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = default;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT6;
 		}
@@ -3301,38 +4651,97 @@ namespace OneOf
 		public bool TryPickT7(out T7 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT7 ? AsT7 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => default,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = default;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT7;
 		}
@@ -3358,38 +4767,97 @@ namespace OneOf
 		public bool TryPickT8(out T8 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT8 ? AsT8 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => default,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = default;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT8;
 		}
@@ -3415,38 +4883,97 @@ namespace OneOf
 		public bool TryPickT9(out T9 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT9 ? AsT9 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => default,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = default;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT9;
 		}
@@ -3472,38 +4999,97 @@ namespace OneOf
 		public bool TryPickT10(out T10 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT10 ? AsT10 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => default,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = default;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT10;
 		}
@@ -3529,38 +5115,97 @@ namespace OneOf
 		public bool TryPickT11(out T11 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT11 ? AsT11 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => default,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = default;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT11;
 		}
@@ -3586,38 +5231,97 @@ namespace OneOf
 		public bool TryPickT12(out T12 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT12 ? AsT12 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => default,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = default;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT12;
 		}
@@ -3643,38 +5347,97 @@ namespace OneOf
 		public bool TryPickT13(out T13 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT13 ? AsT13 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => default,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = default;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT13;
 		}
@@ -3700,38 +5463,97 @@ namespace OneOf
 		public bool TryPickT14(out T14 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT14 ? AsT14 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => default,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = default;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT14;
 		}
@@ -3757,38 +5579,97 @@ namespace OneOf
 		public bool TryPickT15(out T15 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT15 ? AsT15 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => default,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = default;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT15;
 		}
@@ -3814,38 +5695,97 @@ namespace OneOf
 		public bool TryPickT16(out T16 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT16 ? AsT16 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => default,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = default;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT16;
 		}
@@ -3871,38 +5811,97 @@ namespace OneOf
 		public bool TryPickT17(out T17 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT17 ? AsT17 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => default,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = default;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT17;
 		}
@@ -3928,38 +5927,97 @@ namespace OneOf
 		public bool TryPickT18(out T18 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT18 ? AsT18 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => default,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = default;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT18;
 		}
@@ -3985,38 +6043,97 @@ namespace OneOf
 		public bool TryPickT19(out T19 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T20, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT19 ? AsT19 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => default,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = default;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT19;
 		}
@@ -4042,38 +6159,97 @@ namespace OneOf
 		public bool TryPickT20(out T20 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T21, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT20 ? AsT20 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => default,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = default;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT20;
 		}
@@ -4099,38 +6275,97 @@ namespace OneOf
 		public bool TryPickT21(out T21 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T22, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT21 ? AsT21 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => default,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = default;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT21;
 		}
@@ -4156,38 +6391,97 @@ namespace OneOf
 		public bool TryPickT22(out T22 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T23, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT22 ? AsT22 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => default,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = default;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT22;
 		}
@@ -4213,38 +6507,97 @@ namespace OneOf
 		public bool TryPickT23(out T23 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T24, T25, T26, T27, T28> remainder)
 		{
 			value = IsT23 ? AsT23 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => default,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = default;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT23;
 		}
@@ -4270,38 +6623,97 @@ namespace OneOf
 		public bool TryPickT24(out T24 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T25, T26, T27, T28> remainder)
 		{
 			value = IsT24 ? AsT24 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => default,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = default;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT24;
 		}
@@ -4327,38 +6739,97 @@ namespace OneOf
 		public bool TryPickT25(out T25 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T26, T27, T28> remainder)
 		{
 			value = IsT25 ? AsT25 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => default,
-                26 => AsT26,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = default;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT25;
 		}
@@ -4384,38 +6855,97 @@ namespace OneOf
 		public bool TryPickT26(out T26 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T27, T28> remainder)
 		{
 			value = IsT26 ? AsT26 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => default,
-                27 => AsT27,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = default;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT26;
 		}
@@ -4441,38 +6971,97 @@ namespace OneOf
 		public bool TryPickT27(out T27 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T28> remainder)
 		{
 			value = IsT27 ? AsT27 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => default,
-                28 => AsT28,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = default;
+                    break;
+                case 28:
+                    remainder = AsT28;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT27;
 		}
@@ -4498,157 +7087,346 @@ namespace OneOf
 		public bool TryPickT28(out T28 value, out OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27> remainder)
 		{
 			value = IsT28 ? AsT28 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                4 => AsT4,
-                5 => AsT5,
-                6 => AsT6,
-                7 => AsT7,
-                8 => AsT8,
-                9 => AsT9,
-                10 => AsT10,
-                11 => AsT11,
-                12 => AsT12,
-                13 => AsT13,
-                14 => AsT14,
-                15 => AsT15,
-                16 => AsT16,
-                17 => AsT17,
-                18 => AsT18,
-                19 => AsT19,
-                20 => AsT20,
-                21 => AsT21,
-                22 => AsT22,
-                23 => AsT23,
-                24 => AsT24,
-                25 => AsT25,
-                26 => AsT26,
-                27 => AsT27,
-                28 => default,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                case 4:
+                    remainder = AsT4;
+                    break;
+                case 5:
+                    remainder = AsT5;
+                    break;
+                case 6:
+                    remainder = AsT6;
+                    break;
+                case 7:
+                    remainder = AsT7;
+                    break;
+                case 8:
+                    remainder = AsT8;
+                    break;
+                case 9:
+                    remainder = AsT9;
+                    break;
+                case 10:
+                    remainder = AsT10;
+                    break;
+                case 11:
+                    remainder = AsT11;
+                    break;
+                case 12:
+                    remainder = AsT12;
+                    break;
+                case 13:
+                    remainder = AsT13;
+                    break;
+                case 14:
+                    remainder = AsT14;
+                    break;
+                case 15:
+                    remainder = AsT15;
+                    break;
+                case 16:
+                    remainder = AsT16;
+                    break;
+                case 17:
+                    remainder = AsT17;
+                    break;
+                case 18:
+                    remainder = AsT18;
+                    break;
+                case 19:
+                    remainder = AsT19;
+                    break;
+                case 20:
+                    remainder = AsT20;
+                    break;
+                case 21:
+                    remainder = AsT21;
+                    break;
+                case 22:
+                    remainder = AsT22;
+                    break;
+                case 23:
+                    remainder = AsT23;
+                    break;
+                case 24:
+                    remainder = AsT24;
+                    break;
+                case 25:
+                    remainder = AsT25;
+                    break;
+                case 26:
+                    remainder = AsT26;
+                    break;
+                case 27:
+                    remainder = AsT27;
+                    break;
+                case 28:
+                    remainder = default;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT28;
 		}
 
         /// <inheritdoc/>
-        public bool Equals(OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> other) =>
-            _index == other._index &&
-            _index switch
+        public bool Equals(OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> other)
+        {
+            if(_index != other._index)
             {
-                0 => Equals(_value0, other._value0),
-                1 => Equals(_value1, other._value1),
-                2 => Equals(_value2, other._value2),
-                3 => Equals(_value3, other._value3),
-                4 => Equals(_value4, other._value4),
-                5 => Equals(_value5, other._value5),
-                6 => Equals(_value6, other._value6),
-                7 => Equals(_value7, other._value7),
-                8 => Equals(_value8, other._value8),
-                9 => Equals(_value9, other._value9),
-                10 => Equals(_value10, other._value10),
-                11 => Equals(_value11, other._value11),
-                12 => Equals(_value12, other._value12),
-                13 => Equals(_value13, other._value13),
-                14 => Equals(_value14, other._value14),
-                15 => Equals(_value15, other._value15),
-                16 => Equals(_value16, other._value16),
-                17 => Equals(_value17, other._value17),
-                18 => Equals(_value18, other._value18),
-                19 => Equals(_value19, other._value19),
-                20 => Equals(_value20, other._value20),
-                21 => Equals(_value21, other._value21),
-                22 => Equals(_value22, other._value22),
-                23 => Equals(_value23, other._value23),
-                24 => Equals(_value24, other._value24),
-                25 => Equals(_value25, other._value25),
-                26 => Equals(_value26, other._value26),
-                27 => Equals(_value27, other._value27),
-                28 => Equals(_value28, other._value28),
-                _ => false
+                return false;
+            }
+            switch(_index)
+            {
+                case 0: 
+                    return Equals(_value0, other._value0);
+                case 1: 
+                    return Equals(_value1, other._value1);
+                case 2: 
+                    return Equals(_value2, other._value2);
+                case 3: 
+                    return Equals(_value3, other._value3);
+                case 4: 
+                    return Equals(_value4, other._value4);
+                case 5: 
+                    return Equals(_value5, other._value5);
+                case 6: 
+                    return Equals(_value6, other._value6);
+                case 7: 
+                    return Equals(_value7, other._value7);
+                case 8: 
+                    return Equals(_value8, other._value8);
+                case 9: 
+                    return Equals(_value9, other._value9);
+                case 10: 
+                    return Equals(_value10, other._value10);
+                case 11: 
+                    return Equals(_value11, other._value11);
+                case 12: 
+                    return Equals(_value12, other._value12);
+                case 13: 
+                    return Equals(_value13, other._value13);
+                case 14: 
+                    return Equals(_value14, other._value14);
+                case 15: 
+                    return Equals(_value15, other._value15);
+                case 16: 
+                    return Equals(_value16, other._value16);
+                case 17: 
+                    return Equals(_value17, other._value17);
+                case 18: 
+                    return Equals(_value18, other._value18);
+                case 19: 
+                    return Equals(_value19, other._value19);
+                case 20: 
+                    return Equals(_value20, other._value20);
+                case 21: 
+                    return Equals(_value21, other._value21);
+                case 22: 
+                    return Equals(_value22, other._value22);
+                case 23: 
+                    return Equals(_value23, other._value23);
+                case 24: 
+                    return Equals(_value24, other._value24);
+                case 25: 
+                    return Equals(_value25, other._value25);
+                case 26: 
+                    return Equals(_value26, other._value26);
+                case 27: 
+                    return Equals(_value27, other._value27);
+                case 28: 
+                    return Equals(_value28, other._value28);
+                default:
+                    return false;
             };
+        }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)=>
             obj is OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> o && Equals(o);
 
         /// <inheritdoc/>
-        public override string ToString() =>
-            _index switch {
-                0 => FormatValue(_value0),
-                1 => FormatValue(_value1),
-                2 => FormatValue(_value2),
-                3 => FormatValue(_value3),
-                4 => FormatValue(_value4),
-                5 => FormatValue(_value5),
-                6 => FormatValue(_value6),
-                7 => FormatValue(_value7),
-                8 => FormatValue(_value8),
-                9 => FormatValue(_value9),
-                10 => FormatValue(_value10),
-                11 => FormatValue(_value11),
-                12 => FormatValue(_value12),
-                13 => FormatValue(_value13),
-                14 => FormatValue(_value14),
-                15 => FormatValue(_value15),
-                16 => FormatValue(_value16),
-                17 => FormatValue(_value17),
-                18 => FormatValue(_value18),
-                19 => FormatValue(_value19),
-                20 => FormatValue(_value20),
-                21 => FormatValue(_value21),
-                22 => FormatValue(_value22),
-                23 => FormatValue(_value23),
-                24 => FormatValue(_value24),
-                25 => FormatValue(_value25),
-                26 => FormatValue(_value26),
-                27 => FormatValue(_value27),
-                28 => FormatValue(_value28),
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+        public override string ToString()
+        {
+            switch(_index)
+            {
+                case 0:
+                    return FormatValue(_value0);
+                case 1:
+                    return FormatValue(_value1);
+                case 2:
+                    return FormatValue(_value2);
+                case 3:
+                    return FormatValue(_value3);
+                case 4:
+                    return FormatValue(_value4);
+                case 5:
+                    return FormatValue(_value5);
+                case 6:
+                    return FormatValue(_value6);
+                case 7:
+                    return FormatValue(_value7);
+                case 8:
+                    return FormatValue(_value8);
+                case 9:
+                    return FormatValue(_value9);
+                case 10:
+                    return FormatValue(_value10);
+                case 11:
+                    return FormatValue(_value11);
+                case 12:
+                    return FormatValue(_value12);
+                case 13:
+                    return FormatValue(_value13);
+                case 14:
+                    return FormatValue(_value14);
+                case 15:
+                    return FormatValue(_value15);
+                case 16:
+                    return FormatValue(_value16);
+                case 17:
+                    return FormatValue(_value17);
+                case 18:
+                    return FormatValue(_value18);
+                case 19:
+                    return FormatValue(_value19);
+                case 20:
+                    return FormatValue(_value20);
+                case 21:
+                    return FormatValue(_value21);
+                case 22:
+                    return FormatValue(_value22);
+                case 23:
+                    return FormatValue(_value23);
+                case 24:
+                    return FormatValue(_value24);
+                case 25:
+                    return FormatValue(_value25);
+                case 26:
+                    return FormatValue(_value26);
+                case 27:
+                    return FormatValue(_value27);
+                case 28:
+                    return FormatValue(_value28);
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
+        }
 
         /// <inheritdoc/>
         public override int GetHashCode()
         {
             unchecked
             {
-                int hashCode = _index switch
+                int? hashCode;
+                switch(_index)
                 {
-                    0 => _value0?.GetHashCode(),
-                    1 => _value1?.GetHashCode(),
-                    2 => _value2?.GetHashCode(),
-                    3 => _value3?.GetHashCode(),
-                    4 => _value4?.GetHashCode(),
-                    5 => _value5?.GetHashCode(),
-                    6 => _value6?.GetHashCode(),
-                    7 => _value7?.GetHashCode(),
-                    8 => _value8?.GetHashCode(),
-                    9 => _value9?.GetHashCode(),
-                    10 => _value10?.GetHashCode(),
-                    11 => _value11?.GetHashCode(),
-                    12 => _value12?.GetHashCode(),
-                    13 => _value13?.GetHashCode(),
-                    14 => _value14?.GetHashCode(),
-                    15 => _value15?.GetHashCode(),
-                    16 => _value16?.GetHashCode(),
-                    17 => _value17?.GetHashCode(),
-                    18 => _value18?.GetHashCode(),
-                    19 => _value19?.GetHashCode(),
-                    20 => _value20?.GetHashCode(),
-                    21 => _value21?.GetHashCode(),
-                    22 => _value22?.GetHashCode(),
-                    23 => _value23?.GetHashCode(),
-                    24 => _value24?.GetHashCode(),
-                    25 => _value25?.GetHashCode(),
-                    26 => _value26?.GetHashCode(),
-                    27 => _value27?.GetHashCode(),
-                    28 => _value28?.GetHashCode(),
-                    _ => 0
-                } ?? 0;
-                return (hashCode*397) ^ _index;
+                    case 0:
+                        hashCode = _value0?.GetHashCode();
+                        break;
+                    case 1:
+                        hashCode = _value1?.GetHashCode();
+                        break;
+                    case 2:
+                        hashCode = _value2?.GetHashCode();
+                        break;
+                    case 3:
+                        hashCode = _value3?.GetHashCode();
+                        break;
+                    case 4:
+                        hashCode = _value4?.GetHashCode();
+                        break;
+                    case 5:
+                        hashCode = _value5?.GetHashCode();
+                        break;
+                    case 6:
+                        hashCode = _value6?.GetHashCode();
+                        break;
+                    case 7:
+                        hashCode = _value7?.GetHashCode();
+                        break;
+                    case 8:
+                        hashCode = _value8?.GetHashCode();
+                        break;
+                    case 9:
+                        hashCode = _value9?.GetHashCode();
+                        break;
+                    case 10:
+                        hashCode = _value10?.GetHashCode();
+                        break;
+                    case 11:
+                        hashCode = _value11?.GetHashCode();
+                        break;
+                    case 12:
+                        hashCode = _value12?.GetHashCode();
+                        break;
+                    case 13:
+                        hashCode = _value13?.GetHashCode();
+                        break;
+                    case 14:
+                        hashCode = _value14?.GetHashCode();
+                        break;
+                    case 15:
+                        hashCode = _value15?.GetHashCode();
+                        break;
+                    case 16:
+                        hashCode = _value16?.GetHashCode();
+                        break;
+                    case 17:
+                        hashCode = _value17?.GetHashCode();
+                        break;
+                    case 18:
+                        hashCode = _value18?.GetHashCode();
+                        break;
+                    case 19:
+                        hashCode = _value19?.GetHashCode();
+                        break;
+                    case 20:
+                        hashCode = _value20?.GetHashCode();
+                        break;
+                    case 21:
+                        hashCode = _value21?.GetHashCode();
+                        break;
+                    case 22:
+                        hashCode = _value22?.GetHashCode();
+                        break;
+                    case 23:
+                        hashCode = _value23?.GetHashCode();
+                        break;
+                    case 24:
+                        hashCode = _value24?.GetHashCode();
+                        break;
+                    case 25:
+                        hashCode = _value25?.GetHashCode();
+                        break;
+                    case 26:
+                        hashCode = _value26?.GetHashCode();
+                        break;
+                    case 27:
+                        hashCode = _value27?.GetHashCode();
+                        break;
+                    case 28:
+                        hashCode = _value28?.GetHashCode();
+                        break;
+                    default:
+                        hashCode = null;
+                        break;
+                };
+
+                return ((hashCode ?? 0) * 397) ^ _index;
             }
         }
         public static bool operator ==(OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> a,OneOf<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> b) =>

@@ -21,22 +21,33 @@ namespace OneOf
         /// <summary>
         /// Gets the type of value represented by this union.
         /// </summary>
-        public Type GetRepresentedType()=>
-            _index switch
+        public Type GetRepresentedType()
+        {
+            switch(_index)
             {
-                0 => typeof(T0),
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0: 
+                    return typeof(T0);
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
+        }
 
         /// <summary>
         /// Gets the value represented by this union.
         /// </summary>
-        public object Value =>
-            _index switch
+        public object Value
+        {
+            get
             {
-                0 => _value0,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                switch(_index)
+                {
+                    case 0: 
+                        return _value0;
+                    default:
+                        throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+                };
+            }
+        }
 
         /// <summary>
         /// Gets the index indicating the type of value represented by this union.
@@ -130,44 +141,64 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => mapFunc.Invoke(AsT0),
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return mapFunc.Invoke(AsT0);
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
 
         /// <inheritdoc/>
-        public bool Equals(OneOf<T0> other) =>
-            _index == other._index &&
-            _index switch
+        public bool Equals(OneOf<T0> other)
+        {
+            if(_index != other._index)
             {
-                0 => Equals(_value0, other._value0),
-                _ => false
+                return false;
+            }
+            switch(_index)
+            {
+                case 0: 
+                    return Equals(_value0, other._value0);
+                default:
+                    return false;
             };
+        }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)=>
             obj is OneOf<T0> o && Equals(o);
 
         /// <inheritdoc/>
-        public override string ToString() =>
-            _index switch {
-                0 => FormatValue(_value0),
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+        public override string ToString()
+        {
+            switch(_index)
+            {
+                case 0:
+                    return FormatValue(_value0);
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
+        }
 
         /// <inheritdoc/>
         public override int GetHashCode()
         {
             unchecked
             {
-                int hashCode = _index switch
+                int? hashCode;
+                switch(_index)
                 {
-                    0 => _value0?.GetHashCode(),
-                    _ => 0
-                } ?? 0;
-                return (hashCode*397) ^ _index;
+                    case 0:
+                        hashCode = _value0?.GetHashCode();
+                        break;
+                    default:
+                        hashCode = null;
+                        break;
+                };
+
+                return ((hashCode ?? 0) * 397) ^ _index;
             }
         }
         public static bool operator ==(OneOf<T0> a,OneOf<T0> b) =>

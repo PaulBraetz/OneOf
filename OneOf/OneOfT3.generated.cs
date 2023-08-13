@@ -30,28 +30,45 @@ namespace OneOf
         /// <summary>
         /// Gets the type of value represented by this union.
         /// </summary>
-        public Type GetRepresentedType()=>
-            _index switch
+        public Type GetRepresentedType()
+        {
+            switch(_index)
             {
-                0 => typeof(T0),
-                1 => typeof(T1),
-                2 => typeof(T2),
-                3 => typeof(T3),
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0: 
+                    return typeof(T0);
+                case 1: 
+                    return typeof(T1);
+                case 2: 
+                    return typeof(T2);
+                case 3: 
+                    return typeof(T3);
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
+        }
 
         /// <summary>
         /// Gets the value represented by this union.
         /// </summary>
-        public object Value =>
-            _index switch
+        public object Value
+        {
+            get
             {
-                0 => _value0,
-                1 => _value1,
-                2 => _value2,
-                3 => _value3,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                switch(_index)
+                {
+                    case 0: 
+                        return _value0;
+                    case 1: 
+                        return _value1;
+                    case 2: 
+                        return _value2;
+                    case 3: 
+                        return _value3;
+                    default:
+                        throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+                };
+            }
+        }
 
         /// <summary>
         /// Gets the index indicating the type of value represented by this union.
@@ -247,14 +264,19 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => mapFunc.Invoke(AsT0),
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return mapFunc.Invoke(AsT0);
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -280,14 +302,19 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => mapFunc.Invoke(AsT1),
-                2 => AsT2,
-                3 => AsT3,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return mapFunc.Invoke(AsT1);
+                case 2:
+                    return AsT2;
+                case 3:
+                    return AsT3;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -313,14 +340,19 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => mapFunc.Invoke(AsT2),
-                3 => AsT3,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return mapFunc.Invoke(AsT2);
+                case 3:
+                    return AsT3;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
             
         /// <summary>
@@ -346,14 +378,19 @@ namespace OneOf
                 throw new ArgumentNullException(nameof(mapFunc));
             }
 
-            return _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => mapFunc.Invoke(AsT3),
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
-            };
+                case 0:
+                    return AsT0;
+                case 1:
+                    return AsT1;
+                case 2:
+                    return AsT2;
+                case 3:
+                    return mapFunc.Invoke(AsT3);
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
+            }
         }
 
         /// <summary>
@@ -377,13 +414,22 @@ namespace OneOf
 		public bool TryPickT0(out T0 value, out OneOf<T1, T2, T3> remainder)
 		{
 			value = IsT0 ? AsT0 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => default,
-                1 => AsT1,
-                2 => AsT2,
-                3 => AsT3,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = default;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT0;
 		}
@@ -409,13 +455,22 @@ namespace OneOf
 		public bool TryPickT1(out T1 value, out OneOf<T0, T2, T3> remainder)
 		{
 			value = IsT1 ? AsT1 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => default,
-                2 => AsT2,
-                3 => AsT3,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = default;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT1;
 		}
@@ -441,13 +496,22 @@ namespace OneOf
 		public bool TryPickT2(out T2 value, out OneOf<T0, T1, T3> remainder)
 		{
 			value = IsT2 ? AsT2 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => default,
-                3 => AsT3,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = default;
+                    break;
+                case 3:
+                    remainder = AsT3;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT2;
 		}
@@ -473,57 +537,96 @@ namespace OneOf
 		public bool TryPickT3(out T3 value, out OneOf<T0, T1, T2> remainder)
 		{
 			value = IsT3 ? AsT3 : default;
-            remainder = _index switch
+            switch(_index)
             {
-                0 => AsT0,
-                1 => AsT1,
-                2 => AsT2,
-                3 => default,
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+                case 0:
+                    remainder = AsT0;
+                    break;
+                case 1:
+                    remainder = AsT1;
+                    break;
+                case 2:
+                    remainder = AsT2;
+                    break;
+                case 3:
+                    remainder = default;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
 			return this.IsT3;
 		}
 
         /// <inheritdoc/>
-        public bool Equals(OneOf<T0, T1, T2, T3> other) =>
-            _index == other._index &&
-            _index switch
+        public bool Equals(OneOf<T0, T1, T2, T3> other)
+        {
+            if(_index != other._index)
             {
-                0 => Equals(_value0, other._value0),
-                1 => Equals(_value1, other._value1),
-                2 => Equals(_value2, other._value2),
-                3 => Equals(_value3, other._value3),
-                _ => false
+                return false;
+            }
+            switch(_index)
+            {
+                case 0: 
+                    return Equals(_value0, other._value0);
+                case 1: 
+                    return Equals(_value1, other._value1);
+                case 2: 
+                    return Equals(_value2, other._value2);
+                case 3: 
+                    return Equals(_value3, other._value3);
+                default:
+                    return false;
             };
+        }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)=>
             obj is OneOf<T0, T1, T2, T3> o && Equals(o);
 
         /// <inheritdoc/>
-        public override string ToString() =>
-            _index switch {
-                0 => FormatValue(_value0),
-                1 => FormatValue(_value1),
-                2 => FormatValue(_value2),
-                3 => FormatValue(_value3),
-                _ => throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.")
+        public override string ToString()
+        {
+            switch(_index)
+            {
+                case 0:
+                    return FormatValue(_value0);
+                case 1:
+                    return FormatValue(_value1);
+                case 2:
+                    return FormatValue(_value2);
+                case 3:
+                    return FormatValue(_value3);
+                default:
+                    throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
+        }
 
         /// <inheritdoc/>
         public override int GetHashCode()
         {
             unchecked
             {
-                int hashCode = _index switch
+                int? hashCode;
+                switch(_index)
                 {
-                    0 => _value0?.GetHashCode(),
-                    1 => _value1?.GetHashCode(),
-                    2 => _value2?.GetHashCode(),
-                    3 => _value3?.GetHashCode(),
-                    _ => 0
-                } ?? 0;
-                return (hashCode*397) ^ _index;
+                    case 0:
+                        hashCode = _value0?.GetHashCode();
+                        break;
+                    case 1:
+                        hashCode = _value1?.GetHashCode();
+                        break;
+                    case 2:
+                        hashCode = _value2?.GetHashCode();
+                        break;
+                    case 3:
+                        hashCode = _value3?.GetHashCode();
+                        break;
+                    default:
+                        hashCode = null;
+                        break;
+                };
+
+                return ((hashCode ?? 0) * 397) ^ _index;
             }
         }
         public static bool operator ==(OneOf<T0, T1, T2, T3> a,OneOf<T0, T1, T2, T3> b) =>
