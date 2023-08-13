@@ -111,24 +111,35 @@ namespace OneOf
         /// <summary>
         /// Gets the type of value represented by this union.
         /// </summary>
-        public Type GetRepresentedType()=>
-            _index switch
+        public Type GetRepresentedType()
+        {{
+            switch(_index)
             {{
                 {RangeJoined(@"
-                ", j => $"{j} => typeof(T{j}),")}
-                _ => {THROW_INDEX_EX}
+                ", j => $@"case {j}: 
+                    return typeof(T{j});")}
+                default:
+                    {THROW_INDEX_EX};
             }};
+        }}
 
         /// <summary>
         /// Gets the value represented by this union.
         /// </summary>
-        public object Value =>
-            _index switch
+        public object Value
+        {{
+            get
             {{
-                {RangeJoined(@"
-                ", j => $"{j} => _value{j},")}
-                _ => {THROW_INDEX_EX}
-            }};
+                switch(_index)
+                {{
+                    {RangeJoined(@"
+                    ", j => $@"case {j}: 
+                        return _value{j};")}
+                    default:
+                        {THROW_INDEX_EX};
+                }};
+            }}
+        }}
 
         /// <summary>
         /// Gets the index indicating the type of value represented by this union.
@@ -244,15 +255,18 @@ t => $@"/// <summary>
                 throw new ArgumentNullException(nameof(mapFunc));
             }}
 
-            return _index switch
+            switch(_index)
             {{
                 {genericArgs.Joined(@"
                 ", (x, k) =>
             x == bindToType ?
-                $"{k} => mapFunc.Invoke(As{x})," :
-                $"{k} => As{x},")}
-                _ => {THROW_INDEX_EX}
-            }};
+                $@"case {k}:
+                    return mapFunc.Invoke(As{x});" :
+                $@"case {k}:
+                    return As{x};")}
+                default:
+                    {THROW_INDEX_EX};
+            }}
         }}";
 }))}
 ");
@@ -287,14 +301,19 @@ t => $@"/// <summary>
 		public bool TryPickT{j}(out T{j} value, out {remainderType} remainder)
 		{{
 			value = IsT{j} ? AsT{j} : default;
-            remainder = _index switch
+            switch(_index)
             {{
                 {RangeJoined(@"
                 ", k =>
                     k == j ?
-                        $"{k} => default," :
-                        $"{k} => AsT{k},")}
-                _ => {THROW_INDEX_EX}
+                        $@"case {k}:
+                    remainder = default;
+                    break;" :
+                        $@"case {k}:
+                    remainder = AsT{k};
+                    break;")}
+                default:
+                    {THROW_INDEX_EX};
             }};
 			return this.IsT{j};
 		}}";
@@ -305,14 +324,21 @@ t => $@"/// <summary>
     sb.AppendLine(
 $@"
         {IfStruct(@"/// <inheritdoc/>
-        public ")}bool Equals({className}<{genericArg}> other) =>
-            _index == other._index &&
-            _index switch
+        public ")}bool Equals({className}<{genericArg}> other)
+        {{
+            if(_index != other._index)
+            {{
+                return false;
+            }}
+            switch(_index)
             {{
                 {RangeJoined(@"
-                ", j => @$"{j} => Equals(_value{j}, other._value{j}),")}
-                _ => false
+                ", j => @$"case {j}: 
+                    return Equals(_value{j}, other._value{j});")}
+                default:
+                    return false;
             }};
+        }}
 
         /// <inheritdoc/>
         public override bool Equals(object obj)=>
@@ -322,25 +348,36 @@ $@"
             )}
 
         /// <inheritdoc/>
-        public override string ToString() =>
-            _index switch {{
+        public override string ToString()
+        {{
+            switch(_index)
+            {{
                 {RangeJoined(@"
-                ", j => $"{j} => FormatValue(_value{j}),")}
-                _ => {THROW_INDEX_EX}
+                ", j => $@"case {j}:
+                    return FormatValue(_value{j});")}
+                default:
+                    {THROW_INDEX_EX};
             }};
+        }}
 
         /// <inheritdoc/>
         public override int GetHashCode()
         {{
             unchecked
             {{
-                int hashCode = _index switch
+                int? hashCode;
+                switch(_index)
                 {{
                     {RangeJoined(@"
-                    ", j => $"{j} => _value{j}?.GetHashCode(),")}
-                    _ => 0
-                }} ?? 0;
-                return (hashCode*397) ^ _index;
+                    ", j => $@"case {j}:
+                        hashCode = _value{j}?.GetHashCode();
+                        break;")}
+                    default:
+                        hashCode = null;
+                        break;
+                }};
+
+                return ((hashCode ?? 0) * 397) ^ _index;
             }}
         }}{IfStruct(@$"
         public static bool operator ==(OneOf<{genericArg}> a,OneOf<{genericArg}> b) =>
