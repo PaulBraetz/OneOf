@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Threading;
+
 using NUnit.Framework;
 
 namespace OneOf.Tests
@@ -14,15 +15,14 @@ namespace OneOf.Tests
             try
             {
                 return action();
-            }
-            finally
+            } finally
             {
                 Thread.CurrentThread.CurrentCulture = originalCulture;
             }
         }
 
-        [TestCase("en-NZ", ExpectedResult = "System.DateTime: 2/01/2019 1:02:03 am")]
-        [TestCase("en-US", ExpectedResult = "System.DateTime: 1/2/2019 1:02:03 AM")]
+        [TestCase("en-NZ", ExpectedResult = "2/01/2019 1:02:03 am")]
+        [TestCase("en-US", ExpectedResult = "1/2/2019 1:02:03 AM")]
         public string LeftSideFormatsWithCurrentCulture(string cultureName)
         {
             return RunInCulture(new CultureInfo(cultureName, false), () =>
@@ -32,8 +32,8 @@ namespace OneOf.Tests
             });
         }
 
-        [TestCase("en-NZ", ExpectedResult = "System.DateTime: 2/01/2019 1:02:03 am")]
-        [TestCase("en-US", ExpectedResult = "System.DateTime: 1/2/2019 1:02:03 AM")]
+        [TestCase("en-NZ", ExpectedResult = "2/01/2019 1:02:03 am")]
+        [TestCase("en-US", ExpectedResult = "1/2/2019 1:02:03 AM")]
         public string RightSideFormatsWithCurrentCulture(string cultureName)
         {
             return RunInCulture(new CultureInfo(cultureName, false), () =>
@@ -44,10 +44,10 @@ namespace OneOf.Tests
         }
 
         [Test]
-        public void TheValueAndTypeNameAreFormattedCorrectly()
+        public void TheValueIsReturnedAsIs()
         {
             OneOf<string, int, DateTime, decimal> a = 42;
-            Assert.AreEqual("System.Int32: 42", a.ToString());
+            Assert.AreEqual(42.ToString(), a.ToString());
         }
 
         public class RecursiveOneOf : OneOfBase<RecursiveOneOf.InnerOne, RecursiveOneOf.InnerTwo>
@@ -70,7 +70,7 @@ namespace OneOf.Tests
         {
             OneOf<OneOf<string, bool>, OneOf<bool, string>> nestedType = (OneOf<string, bool>)true;
 
-            Assert.AreEqual("OneOf.OneOf`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]: System.Boolean: True", nestedType.ToString());
+            Assert.AreEqual(true.ToString(), nestedType.ToString());
         }
     }
 }

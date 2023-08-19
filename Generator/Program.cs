@@ -354,7 +354,7 @@ $@"
             {{
                 {RangeJoined(@"
                 ", j => $@"case {j}:
-                    return FormatValue(_value{j});")}
+                    return _value{j}?.ToString();")}
                 default:
                     {THROW_INDEX_EX};
             }};
