@@ -5328,69 +5328,69 @@ namespace OneOf
             switch(_index)
             {
                 case 0:
-                    return FormatValue(_value0);
+                    return _value0?.ToString();
                 case 1:
-                    return FormatValue(_value1);
+                    return _value1?.ToString();
                 case 2:
-                    return FormatValue(_value2);
+                    return _value2?.ToString();
                 case 3:
-                    return FormatValue(_value3);
+                    return _value3?.ToString();
                 case 4:
-                    return FormatValue(_value4);
+                    return _value4?.ToString();
                 case 5:
-                    return FormatValue(_value5);
+                    return _value5?.ToString();
                 case 6:
-                    return FormatValue(_value6);
+                    return _value6?.ToString();
                 case 7:
-                    return FormatValue(_value7);
+                    return _value7?.ToString();
                 case 8:
-                    return FormatValue(_value8);
+                    return _value8?.ToString();
                 case 9:
-                    return FormatValue(_value9);
+                    return _value9?.ToString();
                 case 10:
-                    return FormatValue(_value10);
+                    return _value10?.ToString();
                 case 11:
-                    return FormatValue(_value11);
+                    return _value11?.ToString();
                 case 12:
-                    return FormatValue(_value12);
+                    return _value12?.ToString();
                 case 13:
-                    return FormatValue(_value13);
+                    return _value13?.ToString();
                 case 14:
-                    return FormatValue(_value14);
+                    return _value14?.ToString();
                 case 15:
-                    return FormatValue(_value15);
+                    return _value15?.ToString();
                 case 16:
-                    return FormatValue(_value16);
+                    return _value16?.ToString();
                 case 17:
-                    return FormatValue(_value17);
+                    return _value17?.ToString();
                 case 18:
-                    return FormatValue(_value18);
+                    return _value18?.ToString();
                 case 19:
-                    return FormatValue(_value19);
+                    return _value19?.ToString();
                 case 20:
-                    return FormatValue(_value20);
+                    return _value20?.ToString();
                 case 21:
-                    return FormatValue(_value21);
+                    return _value21?.ToString();
                 case 22:
-                    return FormatValue(_value22);
+                    return _value22?.ToString();
                 case 23:
-                    return FormatValue(_value23);
+                    return _value23?.ToString();
                 case 24:
-                    return FormatValue(_value24);
+                    return _value24?.ToString();
                 case 25:
-                    return FormatValue(_value25);
+                    return _value25?.ToString();
                 case 26:
-                    return FormatValue(_value26);
+                    return _value26?.ToString();
                 case 27:
-                    return FormatValue(_value27);
+                    return _value27?.ToString();
                 case 28:
-                    return FormatValue(_value28);
+                    return _value28?.ToString();
                 case 29:
-                    return FormatValue(_value29);
+                    return _value29?.ToString();
                 case 30:
-                    return FormatValue(_value30);
+                    return _value30?.ToString();
                 case 31:
-                    return FormatValue(_value31);
+                    return _value31?.ToString();
                 default:
                     throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };

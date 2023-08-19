@@ -4,7 +4,7 @@
 		<TargetFrameworks>net35;net45;netstandard1.3;netstandard2.0</TargetFrameworks>
 		<Authors>Harry McIntyre, Paul Brätz</Authors>
 		<Title>OneOf - Easy Discriminated Unions for c# (fork)</Title>
-		<PackageVersion>1.0.0</PackageVersion>
+		<PackageVersion>1.1.0</PackageVersion>
 		<Description>
 			This is a fork of the 'OneOf' package.
 			Comments have been added to generated members, as well as other tweaks.

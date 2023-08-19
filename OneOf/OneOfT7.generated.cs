@@ -1237,21 +1237,21 @@ namespace OneOf
             switch(_index)
             {
                 case 0:
-                    return FormatValue(_value0);
+                    return _value0?.ToString();
                 case 1:
-                    return FormatValue(_value1);
+                    return _value1?.ToString();
                 case 2:
-                    return FormatValue(_value2);
+                    return _value2?.ToString();
                 case 3:
-                    return FormatValue(_value3);
+                    return _value3?.ToString();
                 case 4:
-                    return FormatValue(_value4);
+                    return _value4?.ToString();
                 case 5:
-                    return FormatValue(_value5);
+                    return _value5?.ToString();
                 case 6:
-                    return FormatValue(_value6);
+                    return _value6?.ToString();
                 case 7:
-                    return FormatValue(_value7);
+                    return _value7?.ToString();
                 default:
                     throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };

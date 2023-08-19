@@ -4,7 +4,7 @@
 		<TargetFrameworks>net35;net451;netstandard1.3</TargetFrameworks>
 		<Authors>Harry McIntyre, Paul Brätz</Authors>
 		<Title>OneOf - Easy Discriminated Unions for c#</Title>
-		<PackageVersion>1.0.0</PackageVersion>
+		<PackageVersion>1.1.0</PackageVersion>
 		<PackageTags>discriminated unions, return type, match switch</PackageTags>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageId>RhoMicro.OneOf.Extended</PackageId>

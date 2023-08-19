@@ -258,9 +258,9 @@ namespace OneOf
             switch(_index)
             {
                 case 0:
-                    return FormatValue(_value0);
+                    return _value0?.ToString();
                 case 1:
-                    return FormatValue(_value1);
+                    return _value1?.ToString();
                 default:
                     throw new InvalidOperationException("Unexpected index, which indicates a problem in the OneOf codegen.");
             };
